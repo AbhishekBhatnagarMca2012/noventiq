@@ -20,15 +20,45 @@ Steps to call Api:
 3) Use this token key for authorozing the URL's by "Bearer Token" auth mechanism.
 
 Available Url's are
-http://localhost:5145/User/AddUser
-http://localhost:5145/User/UpdateUser
-http://localhost:5145/User/DeleteUser
-http://localhost:5145/User/GetAllUser
+[Post]http://localhost:5145/User/AddUser 
+{
+    "UserName" : "Abhishek",
+    "Password" : "bhatnagar",
+    "RoleID" : 1
+}
 
-http://localhost:5145/Role/AddRole
-http://localhost:5145/Role/UpdateRole
-http://localhost:5145/Role/DeleteRole
-http://localhost:5145/Role/GetAllRoles
+[Put]http://localhost:5145/User/UpdateUser
+{
+            "id": 2,
+            "userName": "neha",
+            "password": "bhatnagar",
+            "role": null,
+            "roleID": 1
+        }
+
+[Delete]http://localhost:5145/User/DeleteUser
+{
+ "id": 2
+}
+[Get]http://localhost:5145/User/GetAllUser
+
+[Post]http://localhost:5145/Role/AddRole
+{
+    "name" : "User1"
+}
+
+
+[Put]http://localhost:5145/Role/UpdateRole
+{
+    "id":"2",
+    "name" : "Role1"
+}
+[Delete]http://localhost:5145/Role/DeleteRole
+{
+    "id":"2"
+}
+
+[Get]http://localhost:5145/Role/GetAllRoles
 
 
 
