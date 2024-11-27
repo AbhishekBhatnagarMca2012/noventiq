@@ -25,7 +25,8 @@ namespace DataAccessLayer.Implementation
         {
             try
             {
-                if (_appDbContext.Roles.Where(i => i.Name.ToLower() == role.Name.ToLower()) == null)
+                List<Role> li = _appDbContext.Roles.ToList();
+                if (_appDbContext.Roles.Where(i => i.Name.ToLower() == role.Name.ToLower()).ToList().Count == 0)
                 {
                     _appDbContext.Roles.Add(role);
                     await _appDbContext.SaveChangesAsync();
@@ -58,9 +59,10 @@ namespace DataAccessLayer.Implementation
         {
             try
             {
-                if (_appDbContext.Roles.Where(i => i.Id == role.Id) != null)
+                if (_appDbContext.Roles.Where(i => i.Id == role.Id).ToList().Count != 0)
                 {
-                    _appDbContext.Roles.Update(role);
+                    var rolTemp = _appDbContext.Roles.Where(i => i.Id == role.Id).FirstOrDefault();
+                    _appDbContext.Roles.Update(rolTemp);
                     await _appDbContext.SaveChangesAsync();
 
                     return new ApiResponse()
@@ -90,11 +92,12 @@ namespace DataAccessLayer.Implementation
         {
             try
             {
-                if (_appDbContext.Roles.Where(i => i.Id == role.Id) != null)
+                if (_appDbContext.Roles.Where(i => i.Id == role.Id).ToList().Count != 0)
                 {
-                    if (_appDbContext.Users.Where(i => i.RoleID == role.Id) == null)
+                    if (_appDbContext.Users.Where(i => i.RoleID == role.Id).ToList().Count != 0)
                     {
-                        _appDbContext.Remove(role);
+                        var rolTemp = _appDbContext.Roles.Where(i => i.Id == role.Id).FirstOrDefault();
+                        _appDbContext.Remove(rolTemp);
                         await _appDbContext.SaveChangesAsync();
 
                         return new ApiResponse()

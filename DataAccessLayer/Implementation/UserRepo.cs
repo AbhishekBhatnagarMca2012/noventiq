@@ -21,7 +21,7 @@ namespace ServiceLayer.Interface
         {
             try
             {
-                if (_appDbContext.Roles.Where(i => i.Id == user.RoleID) != null)
+                if (_appDbContext.Roles.Where(i => i.Id == user.RoleID).ToList().Count != 0)
                 {
                     _appDbContext.Users.Add(user);
                     await _appDbContext.SaveChangesAsync();
@@ -52,11 +52,12 @@ namespace ServiceLayer.Interface
         {
             try
             {
-                if (_appDbContext.Users.Where(i => i.ID == user.ID) != null)
+                if (_appDbContext.Users.Where(i => i.ID == user.ID).ToList().Count != 0)
                 {
-                    if (_appDbContext.Roles.Where(i => i.Id == user.RoleID) != null)
+                    if (_appDbContext.Roles.Where(i => i.Id == user.RoleID).ToList().Count != 0)
                     {
-                        _appDbContext.Users.Update(user);
+                        var tempUser = _appDbContext.Users.Where(i => i.ID == user.ID).FirstOrDefault();
+                        _appDbContext.Users.Update(tempUser);
                         await _appDbContext.SaveChangesAsync();
 
                         return new ApiResponse()
@@ -95,9 +96,10 @@ namespace ServiceLayer.Interface
         {
             try
             {
-                if (_appDbContext.Users.Where(i => i.ID == user.ID) != null)
+                if (_appDbContext.Users.Where(i => i.ID == user.ID).ToList().Count != 0)
                 {
-                    _appDbContext.Users.Remove(user);
+                    var tempUser = _appDbContext.Users.Where(i => i.ID == user.ID).FirstOrDefault();
+                    _appDbContext.Users.Remove(tempUser);
                     await _appDbContext.SaveChangesAsync();
 
                     return new ApiResponse()

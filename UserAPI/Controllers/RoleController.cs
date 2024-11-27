@@ -57,7 +57,7 @@ namespace UserAPI.Controllers
             {
                 if (role != null && role.Id != 0) // apply validations
                 {
-                    return await _roleService.AddUserRole(role);
+                    return await _roleService.UpdateUserRole(role);
                 }
                 else
                 {
