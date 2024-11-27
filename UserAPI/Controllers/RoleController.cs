@@ -17,9 +17,9 @@ namespace UserAPI.Controllers
             _roleService = roleService;
         }
 
-        [Route("User/AddUserRole")]
+        [Route("Role/AddRole")]
         [HttpPost]
-        public async Task<ApiResponse> AddUserRole(Role role)
+        public async Task<ApiResponse> AddRole(Role role)
         {
             try
             {
@@ -49,9 +49,9 @@ namespace UserAPI.Controllers
         }
 
 
-        [Route("User/UpdateUserRole")]
+        [Route("Role/UpdateRole")]
         [HttpPut]
-        public async Task<ApiResponse> UpdateUserRole(Role role)
+        public async Task<ApiResponse> UpdateRole(Role role)
         {
             try
             {
@@ -80,9 +80,9 @@ namespace UserAPI.Controllers
 
         }
 
-        [Route("User/DeleteUserRole")]
+        [Route("Role/DeleteRole")]
         [HttpDelete]
-        public async Task<ApiResponse> DeleteUserRole(Role role)
+        public async Task<ApiResponse> DeleteRole(Role role)
         {
             try
             {
@@ -112,9 +112,9 @@ namespace UserAPI.Controllers
         }
 
 
-        [Route("User/GetAllUserRoles")]
+        [Route("Role/GetAllRoles")]
         [HttpGet]
-        public ApiResponse GetAllUserRoles()
+        public ApiResponse GetAllRoles()
         {
             try
             {
