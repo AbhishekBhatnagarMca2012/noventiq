@@ -97,6 +97,7 @@ namespace DataAccessLayer.Implementation
                     if (_appDbContext.Users.Where(i => i.RoleID == role.Id).ToList().Count != 0)
                     {
                         var rolTemp = _appDbContext.Roles.Where(i => i.Id == role.Id).FirstOrDefault();
+                        rolTemp.Name = role.Name;
                         _appDbContext.Remove(rolTemp);
                         await _appDbContext.SaveChangesAsync();
 

@@ -1,4 +1,5 @@
-﻿using DataAccessLayer.DBContext;
+﻿using DataAccessLayer;
+using DataAccessLayer.DBContext;
 using DataAccessLayer.Interface;
 using DataAccessLayer.Models;
 using System;
@@ -23,6 +24,11 @@ namespace ServiceLayer.Interface
             {
                 if (_appDbContext.Roles.Where(i => i.Id == user.RoleID).ToList().Count != 0)
                 {
+                    byte[] passwordHash, passwordSalt;
+                    PasswordHasher.CreatePasswordHash(user.Password, out passwordHash, out passwordSalt);
+                    user.Password = string.Empty;
+                    user.PasswordHash = passwordHash;
+                    user.PasswordSalt = passwordSalt;
                     _appDbContext.Users.Add(user);
                     await _appDbContext.SaveChangesAsync();
                     return new ApiResponse()
@@ -57,6 +63,13 @@ namespace ServiceLayer.Interface
                     if (_appDbContext.Roles.Where(i => i.Id == user.RoleID).ToList().Count != 0)
                     {
                         var tempUser = _appDbContext.Users.Where(i => i.ID == user.ID).FirstOrDefault();
+                        byte[] passwordHash, passwordSalt;
+                        PasswordHasher.CreatePasswordHash(user.Password, out passwordHash, out passwordSalt);
+                        tempUser.UserName = user.UserName;
+                        tempUser.Password = String.Empty;
+                        tempUser.PasswordHash = passwordHash;
+                        tempUser.PasswordSalt = passwordSalt;
+                        tempUser.RoleID = user.RoleID;
                         _appDbContext.Users.Update(tempUser);
                         await _appDbContext.SaveChangesAsync();
 
