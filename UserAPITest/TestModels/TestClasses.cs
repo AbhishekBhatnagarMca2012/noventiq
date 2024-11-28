@@ -17,6 +17,10 @@ namespace UserAPITest.TestModels
     {
         public HttpStatusCode statusCode { get; set; }
         public string? ResponseMessage { get; set; }
-        public object ResponseData { get; set; }
+        public Token responseData { get; set; }
+    }
+    public class Token
+    {
+        public string token { get; set; }
     }
 }
