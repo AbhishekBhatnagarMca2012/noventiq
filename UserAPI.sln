@@ -5,9 +5,11 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserAPI", "UserAPI\UserAPI.csproj", "{65A7EEB2-67F2-4BA0-BA8A-CDAB674BF9CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{291D36C5-DB10-4D63-B79F-BB428880F306}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{291D36C5-DB10-4D63-B79F-BB428880F306}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLayer", "ServiceLayer\ServiceLayer.csproj", "{095FEB15-FE8B-4051-9AC2-ACAFA46A6492}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceLayer", "ServiceLayer\ServiceLayer.csproj", "{095FEB15-FE8B-4051-9AC2-ACAFA46A6492}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserAPITest", "UserAPITest\UserAPITest.csproj", "{05FAB66C-2401-47E5-B424-BF8CD4ABAAEC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{095FEB15-FE8B-4051-9AC2-ACAFA46A6492}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{095FEB15-FE8B-4051-9AC2-ACAFA46A6492}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{095FEB15-FE8B-4051-9AC2-ACAFA46A6492}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05FAB66C-2401-47E5-B424-BF8CD4ABAAEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05FAB66C-2401-47E5-B424-BF8CD4ABAAEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05FAB66C-2401-47E5-B424-BF8CD4ABAAEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05FAB66C-2401-47E5-B424-BF8CD4ABAAEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
